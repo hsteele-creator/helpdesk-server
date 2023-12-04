@@ -66,4 +66,17 @@ router.post("/Login", async (req, res) => {
   }
 });
 
+// Get agents by company
+
+router.get('/agents/:company', async (req, res) => {
+  const {company} = req.params
+  try {
+    const results= await db.query('SELECT * FROM agents WHERE company = $1', [company]);
+    return res.json(results.rows)
+  }
+  catch(e) {
+    console.error(e)
+  }
+})
+
 module.exports = router;
