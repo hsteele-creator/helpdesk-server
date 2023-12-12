@@ -67,7 +67,6 @@ router.post("/Login", async (req, res) => {
 });
 
 // Get agents by company
-
 router.get('/agents/:company', async (req, res) => {
   const {company} = req.params
   try {
