@@ -39,7 +39,8 @@ router.post("/Login", async (req, res) => {
     ]);
 
     if (results.rows.length === 0) {
-      res.json("User does not exist or password is incorrect");
+      console.log('hello')
+      return res.json("User does not exist or password is incorrect");
     }
 
     if (await bcrypt.compare(password, results.rows[0].password)) {
